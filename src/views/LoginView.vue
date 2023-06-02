@@ -9,12 +9,16 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+const router = useRouter();
 const username = ref<string>("");
 const password = ref<string>("");
 const login = () => {
 	console.log(username.value, password.value);
+	sessionStorage.setItem("username", username.value);
+	sessionStorage.setItem("password", password.value);
 	username.value = "";
 	password.value = "";
+	router.push("/chat");
 };
 </script>
 

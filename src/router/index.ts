@@ -6,6 +6,11 @@ const routes: RouteRecordRaw[] = [
 		name: "loginpage",
 		component: async () => await import("../views/LoginView.vue"),
 	},
+	{
+		path: "/chat",
+		name: "chatpage",
+		component: async () => await import("../views/MainView.vue"),
+	},
 ];
 
 const router = createRouter({
