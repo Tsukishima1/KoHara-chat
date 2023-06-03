@@ -7,37 +7,37 @@
  * 相关prettier配置ESLint会默认加载为代码质检 格式化以prettier为主
  * 在本配置文件中只做代码质量约束规范配置
  */
-module.exports = {
-	root: true,
-	env: {
-		browser: true,
-		node: true,
+{
+	"root": true,
+	"env": {
+		"browser": true,
+		"node": true
 	},
-	extends: [
+	"extends": [
 		"eslint-config-prettier",
 		"eslint:recommended", // 使用推荐的eslint
 		"plugin:@typescript-eslint/recommended",
 		"plugin:vue/vue3-recommended", // 使用插件支持vue3
 		"plugin:vue/vue3-essential",
 		//1.继承.prettierrc.js文件规则2.开启rules的 "prettier/prettier": "error"3.eslint fix的同时执行prettier格式化
-		"plugin:prettier/recommended",
+		"plugin:prettier/recommended"
 	],
-	parser: "vue-eslint-parser",
-	parserOptions: {
-		ecmaVersion: 2020,
-		sourceType: "moudule",
-		parser: "@typescript-eslint/parser",
+	"parser": "vue-eslint-parser",
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"parser": "@typescript-eslint/parser"
 	},
-	globals: {
-		defineProps: "readonly",
-		defineEmits: "readonly",
-		defineExpose: "readonly",
-		withDefaults: "readonly",
+	"globals": {
+		"defineProps": "readonly",
+		"defineEmits": "readonly",
+		"defineExpose": "readonly",
+		"withDefaults": "readonly"
 	},
-	rules: {
-		"no-console": process.env.NODE_ENV === "production" ? ["error", { allow: ["error", "warn"] }] : "off", //生产模式不允许使用log
-		"no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off", //生产默认不允许使用debugger
-		"@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: ".*", args: "none" }], //变量声明未使用
+	"rules": {
+		"no-console": 0, //生产模式不允许使用log
+		"no-debugger": 0, //生产默认不允许使用debugger
+		"@typescript-eslint/no-unused-vars": ["error", { "varsIgnorePattern": ".*", "args": "none" }], //变量声明未使用
 		"@typescript-eslint/no-explicit-any": "off", // 允许ts使用any
 		"@typescript-eslint/no-var-requires": "off", // 强制使用 import 且不允许使用 require 设置off关闭检查
 		// 'vue/require-v-for-key': 'off', // 对保留元素检查 vue3中v-for会自动追加key值，所以不用再强制添加key属性，所以不检查key的填写
@@ -102,7 +102,7 @@ module.exports = {
 		"linebreak-style": [0, "windows"], //换行风格
 		"no-multi-spaces": 1, //不能用多余的空格
 		"no-multi-str": 2, //字符串不能用\换行
-		"no-multiple-empty-lines": [1, { max: 2 }], //空行最多不能超过2行
+		"no-multiple-empty-lines": [1, { "max": 2 }], //空行最多不能超过2行
 		"no-native-reassign": 0, //不能重写native对象
 		"no-negated-in-lhs": 2, //in 操作符的左边不能有!
 		"no-nested-ternary": 0, //禁止使用嵌套的三目运算
@@ -143,9 +143,9 @@ module.exports = {
 		"no-unneeded-ternary": 1, //禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
 		"no-unreachable": 2, //不能有无法执行的代码
 		"no-unused-expressions": 2, //禁止无用的表达式
-		"no-unused-vars": [0, { vars: "all", args: "after-used" }], //不能有声明后未被使用的变量或参数
+		"no-unused-vars": [0, { "vars": "all", "args": "after-used" }], //不能有声明后未被使用的变量或参数
 		"no-use-before-define": 2, //未定义前不能使用
 		"no-useless-call": 2, //禁止不必要的call和apply
-		"no-void": 2, //禁用void操作符
-	},
-};
+		"no-void": 2 //禁用void操作符
+	}
+}
