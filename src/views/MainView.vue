@@ -1,11 +1,17 @@
 <template>
 	<div class="container">
-		<ul>
-			<li v-for="(msg, index) in storeMsg.msgList" :key="index">{{ msg.username }}({{ msg.time }}): {{ msg.msg }}</li>
+		<ul class="msglist">
+			<li v-for="(msg, index) in storeMsg.msgList" :key="index" :class="{ usermsg: isUser(msg.username) }">
+				<p class="username">{{ msg.username }}</p>
+				<div class="msgbox">
+					<div class="msg">{{ msg.msg }}</div>
+					<p class="time">{{ msg.time.slice(8) }}</p>
+				</div>
+			</li>
 		</ul>
 		<div class="input">
 			<t-input v-model="msgdata" size="large" />
-			<t-button size="large" theme="primary" @click="handleSendBtnClick">发送</t-button>
+			<button class="btn" @click="handleSendBtnClick">发送</button>
 		</div>
 	</div>
 </template>
@@ -25,6 +31,9 @@ const handleSendBtnClick = () => {
 		})
 	);
 	msgdata.value = "";
+};
+const isUser = (username: string) => {
+	return username === sessionStorage.getItem("username");
 };
 onMounted(() => {
 	websocket.init();

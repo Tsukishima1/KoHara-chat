@@ -1,7 +1,118 @@
+$main-color: rgb(157, 208, 228);
+$msg-user-color: rgb(222, 235, 241);
 .container {
+    box-shadow: 0 0 3px 0 rgb(210, 210, 210);
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 70vw;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: white;
     .input {
+        border-radius: 1px solid grey;
         margin-top: 1rem;
         display: flex;
         gap: 0.5rem;
+        :deep(.t-input) {
+            height: 4rem;
+            border-radius: 0.8rem;
+            border-width: 2px;
+            border-color: rgb(235, 235, 235);
+            &:hover {
+                border-color: $main-color;
+            }
+            &:focus {
+                border-color: $main-color;
+            }
+        }
+        :deep(.t-input--focused) {
+            border-color: $main-color;
+        }
+        .btn {
+            cursor: pointer;
+            height: 100%;
+            width: 5rem;
+            font-size: 1rem;
+            color: white;
+            font-weight: bold;
+            border-radius: 0.8rem;
+            background-color: $main-color;
+            border-color: transparent;
+            box-shadow: 0 0 3px 0 rgb(210, 210, 210);
+            transition: 0.2s linear;
+            &:hover {
+                box-shadow: 0 0 3px 0 $main-color;
+                background-color: rgb(144, 195, 215);
+            }
+        }
+    }
+    p {
+        padding: 0px;
+        margin: 0px;
+    }
+    .msglist {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0 0.5rem;
+        height: 90%;
+        li {
+            min-width: 6rem;
+            list-style: none;
+            margin-bottom: 0.2rem;
+            text-align: left;
+            .username {
+                padding-left: 0.3rem;
+                font-weight: bold;
+                color: rgb(143, 156, 161);
+                font-size: 14px;
+                margin-bottom: 0.2rem;
+            }
+            .msgbox {
+                position: relative;
+                display: inline-block;
+                padding-bottom: 1.2rem;
+                min-width: 3.2rem;
+                max-width: 85%;
+            }
+            .msg {
+                display: inline-flex;
+                padding: 0.7rem;
+                text-align: left;
+                white-space: pre-wrap;
+                border-radius: 0.7rem;
+                background-color: rgb(246, 245, 245);
+                word-break: break-all;
+                overflow-wrap: anywhere;
+                box-shadow: 0 0 3px 0 rgb(210, 210, 210);
+            }
+            .time {
+                cursor: default;
+                position: absolute;
+                right: 3px;
+                padding-left: 0.1rem;
+                margin-top: 0.2rem;
+                font-size: 0.3rem;
+                color: rgb(184, 184, 184);
+                bottom: 0px;
+            }
+        }
+        .usermsg {
+            text-align: right;
+            .msg {
+                background-color: $msg-user-color;
+            }
+            .time {
+                position: absolute;
+                padding-right: 0.1rem;
+                right: auto;
+                left: 0.2rem;
+            }
+            .username {
+                padding-right: 0.4rem;
+                color: rgb(107, 135, 146);
+            }
+        }
     }
 }
