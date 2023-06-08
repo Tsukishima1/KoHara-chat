@@ -16,9 +16,11 @@ const login = () => {
 	console.log(username.value, password.value);
 	sessionStorage.setItem("username", username.value);
 	sessionStorage.setItem("password", password.value);
-	username.value = "";
-	password.value = "";
 	router.push("/chat");
+	setInterval(() => {
+		username.value = "";
+		password.value = "";
+	}, 400);
 };
 </script>
 

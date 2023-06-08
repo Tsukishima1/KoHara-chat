@@ -6,12 +6,12 @@ type Msg = {
 	username: string;
 	time: string;
 	msg: string;
+	isContinous: boolean;
 };
 export const useStoreMsg = defineStore("storeMsg", () => {
 	const msg = ref<string>("");
 	const msgList = ref<Msg[]>([]);
 	const addMsg = (msgdata: any) => {
-		console.log("addMsg", msgdata);
 		msgList.value.push(msgdata as Msg);
 	};
 
@@ -33,7 +33,6 @@ export const useWebsocket = defineStore("websocket", () => {
 		};
 		ws.onmessage = (e) => {
 			console.log("onmessage");
-			console.log(JSON.parse(e.data));
 			useStoreMsg().addMsg(JSON.parse(e.data));
 		};
 		ws.onerror = (e) => {

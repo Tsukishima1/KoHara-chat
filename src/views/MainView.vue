@@ -2,7 +2,7 @@
 	<div class="container">
 		<ul class="msglist">
 			<li v-for="(msg, index) in storeMsg.msgList" :key="index" :class="{ usermsg: isUser(msg.username) }">
-				<p class="username">{{ msg.username }}</p>
+				<p v-if="!msg.isContinous" class="username">{{ msg.username }}</p>
 				<div class="msgbox">
 					<div class="msg">{{ msg.msg }}</div>
 					<p class="time">{{ msg.time.slice(8) }}</p>
@@ -28,6 +28,7 @@ const handleSendBtnClick = () => {
 			username: sessionStorage.getItem("username") || "",
 			time: new Date().toLocaleString(),
 			msg: msgdata.value,
+			isContinous: sessionStorage.getItem("username") === storeMsg.msgList[storeMsg.msgList.length - 1]?.username,
 		})
 	);
 	msgdata.value = "";
