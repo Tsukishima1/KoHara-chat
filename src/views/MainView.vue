@@ -39,6 +39,13 @@ const isUser = (username: string) => {
 onMounted(() => {
 	websocket.init();
 });
+watch(storeMsg.msgList, () => {
+	const msglist = document.querySelector(".msglist");
+	console.log(msglist?.scrollHeight);
+	setTimeout(() => {
+		msglist?.scrollTo(0, msglist.scrollHeight);
+	}, 100);
+});
 </script>
 
 <style src="../assets/style/mainview.scss" lang="scss" scoped></style>
