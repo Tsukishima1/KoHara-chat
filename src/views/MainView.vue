@@ -10,7 +10,7 @@
 			</li>
 		</ul>
 		<div class="input">
-			<t-input v-model="msgdata" size="large" />
+			<t-input ref="input" v-model="msgdata" type="text" size="large" @enter="enter()" />
 			<button class="btn" @click="handleSendBtnClick">发送</button>
 		</div>
 	</div>
@@ -21,7 +21,12 @@ import { useWebsocket, useStoreMsg } from "../stores/index";
 const storeMsg = useStoreMsg();
 const websocket = useWebsocket();
 const msgdata = ref<string>("");
+const input = ref<HTMLInputElement | null>(null);
 const handleSendBtnClick = () => {
+	if (!msgdata.value || !msgdata.value.trim()) {
+		msgdata.value = "";
+		return;
+	}
 	websocket.send(
 		JSON.stringify({
 			id: new Date().getTime(),
@@ -33,6 +38,11 @@ const handleSendBtnClick = () => {
 	);
 	msgdata.value = "";
 };
+const enter = () => {
+	input.value?.blur();
+	handleSendBtnClick();
+	input.value?.focus();
+};
 const isUser = (username: string) => {
 	return username === sessionStorage.getItem("username");
 };
@@ -41,7 +51,6 @@ onMounted(() => {
 });
 watch(storeMsg.msgList, () => {
 	const msglist = document.querySelector(".msglist");
-	console.log(msglist?.scrollHeight);
 	setTimeout(() => {
 		msglist?.scrollTo(0, msglist.scrollHeight);
 	}, 100);
