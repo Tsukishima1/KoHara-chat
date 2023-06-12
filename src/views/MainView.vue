@@ -5,7 +5,7 @@
 				<p v-if="!msg.isContinous" class="username">{{ msg.username }}</p>
 				<div class="msgbox">
 					<div class="msg">{{ msg.msg }}</div>
-					<p class="time">{{ msg.time.slice(8) }}</p>
+					<p class="time">{{ msg.time.slice(-8) }}</p>
 				</div>
 			</li>
 		</ul>
