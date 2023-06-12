@@ -1,17 +1,30 @@
 $main-color: rgb(157, 208, 228);
 $msg-user-color: rgb(222, 235, 241);
 .container {
+    position: relative;
     box-shadow: 0 0 3px 0 rgb(210, 210, 210);
     display: flex;
     flex-direction: column;
     height: 80vh;
     width: 70vw;
-    padding: 2rem;
+    padding: 0 2rem;
     border-radius: 1rem;
     background-color: white;
+    .title {
+        background-color: #f6f6f66a;
+        color: rgb(108, 108, 108);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        border-radius: 0.3rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
     .input {
         border-radius: 1px solid grey;
         margin-top: 1rem;
+        margin-bottom: 2rem;
         display: flex;
         gap: 0.5rem;
         :deep(.t-input) {
@@ -55,7 +68,7 @@ $msg-user-color: rgb(222, 235, 241);
         overflow: auto;
         display: flex;
         flex-direction: column;
-        padding: 0 0.5rem;
+        padding: 0 0.8rem;
         height: 90%;
         li {
             min-width: 6rem;

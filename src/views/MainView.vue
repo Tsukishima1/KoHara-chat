@@ -1,5 +1,6 @@
 <template>
 	<div class="container">
+		<div class="title">大厅</div>
 		<ul class="msglist">
 			<li v-for="(msg, index) in storeMsg.msgList" :key="index" :class="{ usermsg: isUser(msg.username) }">
 				<p v-if="!msg.isContinous" class="username">{{ msg.username }}</p>
@@ -10,7 +11,7 @@
 			</li>
 		</ul>
 		<div class="input">
-			<t-input ref="input" v-model="msgdata" type="text" size="large" @enter="enter()" />
+			<t-input ref="input" v-model="msgdata" type="text" size="large" @enter="handleKeydown" />
 			<button class="btn" @click="handleSendBtnClick">发送</button>
 		</div>
 	</div>
@@ -38,11 +39,12 @@ const handleSendBtnClick = () => {
 	);
 	msgdata.value = "";
 };
-const enter = () => {
-	input.value?.blur();
-	handleSendBtnClick();
-	input.value?.focus();
-};
+function handleKeydown(_value: string, context: { e: KeyboardEvent }) {
+	console.log("Key pressedL: ", context.e.key);
+	if (context.e.key === "Enter") {
+		handleSendBtnClick();
+	}
+}
 const isUser = (username: string) => {
 	return username === sessionStorage.getItem("username");
 };
