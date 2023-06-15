@@ -76,7 +76,7 @@ $msg-user-color: rgb(222, 235, 241);
             margin-bottom: 0.2rem;
             text-align: left;
             .username {
-                padding-left: 0.3rem;
+                padding-left: 0.1rem;
                 font-weight: bold;
                 color: rgb(143, 156, 161);
                 font-size: 14px;
@@ -95,10 +95,11 @@ $msg-user-color: rgb(222, 235, 241);
                 text-align: left;
                 white-space: pre-wrap;
                 border-radius: 0.7rem;
+                border-top-left-radius: 0px;
                 background-color: rgb(246, 245, 245);
                 word-break: break-all;
                 overflow-wrap: anywhere;
-                box-shadow: 0 0 3px 0 rgb(210, 210, 210);
+                box-shadow: 0 0 3px 0 rgb(178, 178, 178);
             }
             .time {
                 cursor: default;
@@ -114,6 +115,8 @@ $msg-user-color: rgb(222, 235, 241);
         .usermsg {
             text-align: right;
             .msg {
+                border-top-left-radius: 0.7rem;
+                border-top-right-radius: 0px;
                 background-color: $msg-user-color;
             }
             .time {
@@ -123,7 +126,7 @@ $msg-user-color: rgb(222, 235, 241);
                 left: 0.2rem;
             }
             .username {
-                padding-right: 0.4rem;
+                padding-right: 0.1rem;
                 color: rgb(107, 135, 146);
             }
         }

@@ -32,11 +32,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #eae8f0;
-  background-image: radial-gradient(closest-side, rgb(244, 241, 237), rgba(235, 105, 78, 0)),
-    radial-gradient(closest-side, rgb(204, 210, 245, 1), rgba(243, 11, 164, 0)),
-    radial-gradient(closest-side, rgb(216, 233, 230), rgba(254, 234, 131, 0)),
-    radial-gradient(closest-side, rgb(173, 205, 235), rgba(170, 142, 245, 0)),
-    radial-gradient(closest-side, rgb(214, 236, 236, 1), rgba(248, 192, 147, 0));
+  background-image: radial-gradient(closest-side, rgb(255, 251, 246), rgba(235, 105, 78, 0)),
+    radial-gradient(closest-side, rgb(234, 229, 229), rgba(243, 11, 164, 0)),
+    radial-gradient(closest-side, rgb(243, 243, 243), rgba(254, 234, 131, 0)),
+    radial-gradient(closest-side, rgb(251, 233, 211), rgba(170, 142, 245, 0)),
+    radial-gradient(closest-side, rgb(228, 235, 239), rgba(248, 192, 147, 0));
   background-size: 130vmax 130vmax, 80vmax 80vmax, 90vmax 90vmax, 110vmax 110vmax, 90vmax 90vmax;
   background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax, -30vmax -10vmax, 50vmax 50vmax;
   background-repeat: no-repeat;
