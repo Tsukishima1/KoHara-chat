@@ -2,6 +2,9 @@
 	<div class="container">
 		<div class="title">大厅</div>
 		<ul class="msglist">
+			<li v-if="!storeMsg.msgList.length" class="empty">
+				<p>暂时还没有人发言诶，快来说句话吧！</p>
+			</li>
 			<li v-for="(msg, index) in storeMsg.msgList" :key="index" :class="{ usermsg: isUser(msg.username) }">
 				<p v-if="!msg.isContinous" class="username">{{ msg.username }}</p>
 				<div class="msgbox">
@@ -40,7 +43,6 @@ const handleSendBtnClick = () => {
 	msgdata.value = "";
 };
 function handleKeydown(_value: string, context: { e: KeyboardEvent }) {
-	console.log("Key pressedL: ", context.e.key);
 	if (context.e.key === "Enter") {
 		handleSendBtnClick();
 	}

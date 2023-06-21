@@ -46,4 +46,7 @@ export default defineConfig({
 			scss: {},
 		},
 	},
+	server: {
+		proxy: {},
+	},
 });

@@ -70,6 +70,11 @@ $msg-user-color: rgb(222, 235, 241);
         flex-direction: column;
         padding: 0 0.8rem;
         height: 90%;
+        .empty {
+            text-align: center;
+            margin: auto 0;
+            color: rgb(206, 206, 206);
+        }
         li {
             min-width: 6rem;
             list-style: none;

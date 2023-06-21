@@ -1,4 +1,4 @@
-const wss = require("ws");
+import wss from "ws";
 
 ((Ws) => {
 	const server = new Ws.Server({ port: 8080 });

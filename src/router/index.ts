@@ -3,6 +3,10 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from "vue-router"
 const routes: RouteRecordRaw[] = [
 	{
 		path: "/",
+		redirect: "/login",
+	},
+	{
+		path: "/login",
 		name: "loginpage",
 		component: async () => await import("../views/LoginView.vue"),
 	},
