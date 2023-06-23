@@ -10,3 +10,14 @@ export function userLogin(username: string, password: string) {
 		},
 	});
 }
+
+export function userRegister(username: string, password: string) {
+	return myAxios({
+		url: "/userregister",
+		method: "post",
+		data: {
+			username,
+			password,
+		},
+	});
+}

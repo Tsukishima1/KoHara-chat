@@ -29,11 +29,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // 添加cors中间件解决跨域问题
 app.use(cors());
 
+// 登录
 app.post("/userlogin", (req: Request, res: Response) => {
 	const { username, password } = req.body;
-
-	// 实现登陆验证逻辑
-	// 是否存在该用户
 	db.query("SELECT * FROM user WHERE username = ?", [username], (err, results) => {
 		if (err) {
 			console.error(err);
@@ -50,6 +48,28 @@ app.post("/userlogin", (req: Request, res: Response) => {
 
 		//成功响应
 		return res.status(200).send({ status: true, message: "登录成功！" });
+	});
+});
+
+// 注册
+app.post("/userregister", (req: Request, res: Response) => {
+	const { username, password } = req.body;
+	db.query("SELECT * FROM user WHERE username = ?", [username], (err, results) => {
+		if (err) {
+			console.error(err);
+			return res.status(500).send("连接失败！");
+		}
+		if (results.length > 0) {
+			return res.status(200).send({ status: false, message: "该用户已存在!" });
+		}
+		// 插入数据
+		db.query("INSERT INTO user SET ?", { username, password }, (error, result) => {
+			if (error) {
+				console.error(error);
+				return res.status(500).send("连接失败！");
+			}
+			return res.status(200).send({ status: true, message: "注册成功！开始你的旅途吧" });
+		});
 	});
 });
 
