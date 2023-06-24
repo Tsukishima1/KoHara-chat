@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div class="asidenav">
-			<button>退出登录</button>
+			<button @click="signout">退出登录</button>
 		</div>
 		<div class="main">
 			<div class="title">大厅</div>
@@ -27,6 +27,7 @@
 
 <script setup lang="ts">
 import { useWebsocket, useStoreMsg } from "../stores/index";
+import router from "../router/index";
 const storeMsg = useStoreMsg();
 const websocket = useWebsocket();
 const msgdata = ref<string>("");
@@ -52,6 +53,9 @@ function handleKeydown(_value: string, context: { e: KeyboardEvent }) {
 		handleSendBtnClick();
 	}
 }
+const signout = () => {
+	router.push("/login");
+};
 const isUser = (username: string) => {
 	return username === sessionStorage.getItem("username");
 };
