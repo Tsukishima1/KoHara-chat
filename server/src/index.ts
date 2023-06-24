@@ -12,7 +12,8 @@ const db = mysql.createConnection({
 	host: "localhost", //主机
 	user: "root", //用户
 	password: "123456", //密码
-	database: "test", //要操作的数据库
+	// password: "8_C5wow3t&nA", //密码
+	database: "testtest", //要操作的数据库
 });
 
 // 连接数据库

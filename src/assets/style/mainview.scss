@@ -1,5 +1,5 @@
-$main-color: rgb(157, 208, 228);
-$msg-user-color: rgb(222, 235, 241);
+$main-color: #acb6d3;
+$msg-user-color: #eef0f5;
 .container {
     position: relative;
     box-shadow: 0 0 3px 0 rgb(210, 210, 210);
@@ -12,13 +12,16 @@ $msg-user-color: rgb(222, 235, 241);
     border-radius: 1rem;
     background-color: white;
     .asidenav {
+        position: relative;
         margin: 1rem 0;
         display: flex;
-        min-width: max-content;
         border-right: 1px solid rgb(230, 230, 230);
-        padding: 1rem;
         padding-left: 0;
+        transition: 0.3s ease;
+        width: 5.5rem;
+        overflow: hidden;
         button {
+            margin-right: 1rem;
             height: 3rem;
             font-size: 0.9rem;
             font-weight: bold;
@@ -37,11 +40,28 @@ $msg-user-color: rgb(222, 235, 241);
                 background-color: rgb(242, 243, 246);
             }
         }
+        .backbtn {
+            color: $main-color;
+            cursor: pointer;
+            position: absolute;
+            right: 0.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: 0.2s linear;
+            &:hover {
+                color: grey;
+            }
+        }
+    }
+    .asidenav_off {
+        width: 0px;
+        transition: all 0.4s ease;
     }
     .main {
-        width: 100%;
+        flex: 1;
         display: flex;
         flex-direction: column;
+        overflow: hidden;
     }
     .title {
         background-color: #f6f6f66a;
@@ -60,22 +80,16 @@ $msg-user-color: rgb(222, 235, 241);
         margin-bottom: 2rem;
         display: flex;
         gap: 0.5rem;
-        :deep(.t-input) {
-            height: 4rem;
-            border-radius: 0.8rem;
-            border-width: 2px;
-            border-color: rgb(235, 235, 235);
-            &:hover {
-                border-color: $main-color;
-            }
-            &:focus {
-                border-color: $main-color;
-            }
+        :deep(.t-textarea) {
+            margin-left: 0.2rem;
         }
-        :deep(.t-input--focused) {
-            border-color: $main-color;
+        :deep(.t-textarea__inner) {
+            resize: none;
+            border-radius: 0.5rem;
+            border-width: 0.14rem;
         }
         .btn {
+            margin-right: 0.1rem;
             cursor: pointer;
             height: 100%;
             width: 5rem;

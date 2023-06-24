@@ -1,7 +1,10 @@
 <template>
 	<div class="container">
 		<div class="asidenav">
-			<button @click="signout">退出登录</button>
+			<t-popconfirm content="确认退出登录吗？" @confirm="signout">
+				<t-button>退出登录</t-button>
+			</t-popconfirm>
+			<span class="backbtn" @click="turnOffNav = !turnOffNav">&lt;</span>
 		</div>
 		<div class="main">
 			<div class="title">大厅</div>
@@ -18,7 +21,7 @@
 				</li>
 			</ul>
 			<div class="input">
-				<t-input ref="input" v-model="msgdata" type="text" size="large" @enter="handleKeydown" />
+				<t-textarea ref="input" v-model="msgdata" type="text" size="large" :autosize="false" @keydown="handleKeydown" />
 				<button class="btn" @click="handleSendBtnClick">发送</button>
 			</div>
 		</div>
@@ -31,6 +34,7 @@ import router from "../router/index";
 const storeMsg = useStoreMsg();
 const websocket = useWebsocket();
 const msgdata = ref<string>("");
+const turnOffNav = ref<boolean>(false);
 const input = ref<HTMLInputElement | null>(null);
 const handleSendBtnClick = () => {
 	if (!msgdata.value || !msgdata.value.trim()) {
@@ -49,7 +53,8 @@ const handleSendBtnClick = () => {
 	msgdata.value = "";
 };
 function handleKeydown(_value: string, context: { e: KeyboardEvent }) {
-	if (context.e.key === "Enter") {
+	if (context.e.code === "Enter" && !context.e.shiftKey) {
+		context.e.preventDefault();
 		handleSendBtnClick();
 	}
 }
@@ -67,6 +72,23 @@ watch(storeMsg.msgList, () => {
 	setTimeout(() => {
 		msglist?.scrollTo(0, msglist.scrollHeight);
 	}, 100);
+});
+watch(turnOffNav, () => {
+	const asidenav = document.querySelector(".asidenav") as HTMLElement;
+	const backbtn = document.querySelector(".backbtn") as HTMLElement;
+	if (turnOffNav.value) {
+		asidenav.classList.add("asidenav_off");
+		const timer = setInterval(() => {
+			backbtn.innerText = ">";
+			clearInterval(timer);
+		}, 400);
+	} else {
+		asidenav.classList.remove("asidenav_off");
+		const timer = setInterval(() => {
+			backbtn.innerText = "<";
+			clearInterval(timer);
+		}, 400);
+	}
 });
 </script>
 

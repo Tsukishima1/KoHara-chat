@@ -1,9 +1,24 @@
-$font-family: "Noto Sans SC", "微软雅黑";
-$main-color:rgb(157, 208, 228);
+$font-family: "思源黑体","Noto Sans SC", "微软雅黑";
+@font-face {
+  font-family: '思源黑体';
+  font-display: swap;
+  src: url('//at.alicdn.com/t/webfont_0q82cltaxst.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/webfont_0q82cltaxst.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/webfont_0q82cltaxst.woff2') format('woff2'),
+  url('//at.alicdn.com/t/webfont_0q82cltaxst.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/webfont_0q82cltaxst.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/webfont_0q82cltaxst.svg#思源黑体-粗') format('svg'); /* iOS 4.1- */
+}
+* {
+  font-family: $font-family;
+}
 
 :root {
   font-family: $font-family;
   --td-font-family: $font-family !important;
+  --td-brand-color: #8b98bc!important;
+  --td-brand-color-active: #bac7e0!important;
+  --td-brand-color-hover: #6a81ab!important;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
