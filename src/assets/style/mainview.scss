@@ -4,12 +4,37 @@ $msg-user-color: rgb(222, 235, 241);
     position: relative;
     box-shadow: 0 0 3px 0 rgb(210, 210, 210);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 80vh;
     width: 70vw;
-    padding: 0 2rem;
+    padding: 0 1rem;
+    gap: 1rem;
     border-radius: 1rem;
     background-color: white;
+    .asidenav {
+        background-color: whitesmoke;
+        padding: 1rem;
+        button {
+            height: 3rem;
+            cursor: pointer;
+            background-color: rgb(212, 215, 222);
+            border-style: none;
+            box-shadow: 0 0 0.3rem 0 rgb(182, 186, 193);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(78, 78, 78);
+            transition: 0.4s;
+            &:hover {
+                background-color: rgb(201, 206, 215);
+            }
+        }
+    }
+    .main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
     .title {
         background-color: #f6f6f66a;
         color: rgb(108, 108, 108);

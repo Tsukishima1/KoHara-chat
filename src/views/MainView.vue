@@ -1,21 +1,26 @@
 <template>
 	<div class="container">
-		<div class="title">大厅</div>
-		<ul class="msglist">
-			<li v-if="!storeMsg.msgList.length" class="empty">
-				<p>暂时还没有人发言诶，快来说句话吧！</p>
-			</li>
-			<li v-for="(msg, index) in storeMsg.msgList" :key="index" :class="{ usermsg: isUser(msg.username) }">
-				<p v-if="!msg.isContinous" class="username">{{ msg.username }}</p>
-				<div class="msgbox">
-					<div class="msg">{{ msg.msg }}</div>
-					<p class="time">{{ msg.time.slice(-8) }}</p>
-				</div>
-			</li>
-		</ul>
-		<div class="input">
-			<t-input ref="input" v-model="msgdata" type="text" size="large" @enter="handleKeydown" />
-			<button class="btn" @click="handleSendBtnClick">发送</button>
+		<div class="asidenav">
+			<button>退出登录</button>
+		</div>
+		<div class="main">
+			<div class="title">大厅</div>
+			<ul class="msglist">
+				<li v-if="!storeMsg.msgList.length" class="empty">
+					<p>暂时还没有人发言诶，快来说句话吧！</p>
+				</li>
+				<li v-for="(msg, index) in storeMsg.msgList" :key="index" :class="{ usermsg: isUser(msg.username) }">
+					<p v-if="!msg.isContinous" class="username">{{ msg.username }}</p>
+					<div class="msgbox">
+						<div class="msg">{{ msg.msg }}</div>
+						<p class="time">{{ msg.time.slice(-8) }}</p>
+					</div>
+				</li>
+			</ul>
+			<div class="input">
+				<t-input ref="input" v-model="msgdata" type="text" size="large" @enter="handleKeydown" />
+				<button class="btn" @click="handleSendBtnClick">发送</button>
+			</div>
 		</div>
 	</div>
 </template>
