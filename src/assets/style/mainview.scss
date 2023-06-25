@@ -8,17 +8,20 @@ $msg-user-color: #eef0f5;
     height: 80vh;
     width: 70vw;
     padding: 0 1rem;
+    padding-left: 0.3rem;
     gap: 1rem;
     border-radius: 1rem;
     background-color: white;
     .asidenav {
+        padding-top: 1rem;
+        flex-direction: column;
         position: relative;
         margin: 1rem 0;
         display: flex;
         border-right: 1px solid rgb(230, 230, 230);
-        padding-left: 0;
+        padding-left: 1rem;
         transition: 0.3s ease;
-        width: 5.5rem;
+        width: 7rem;
         overflow: hidden;
         button {
             margin-right: 1rem;
@@ -41,20 +44,46 @@ $msg-user-color: #eef0f5;
             }
         }
         .backbtn {
+            z-index: 999;
             color: $main-color;
             cursor: pointer;
             position: absolute;
-            right: 0.2rem;
+            right: -0.3rem;
             top: 50%;
             transform: translateY(-50%);
             transition: 0.2s linear;
             &:hover {
                 color: grey;
             }
+            .arrow {
+                transition: 0.2s ease;
+            }
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            background-color: white;
+            top: 0;
+            right: 0;
+            width: 0.95rem;
+            height: 100%;
+            z-index: 100;
+        }
+        .header {
+            padding-right: 1rem;
+            margin-bottom: 1rem;
+            .headermsg {
+                font-weight: 700;
+                color: $main-color;
+            }
+            .headerusername {
+                color: #6e7485;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
         }
     }
     .asidenav_off {
-        width: 0px;
+        width: 0.8rem;
         transition: all 0.4s ease;
     }
     .main {
@@ -85,6 +114,7 @@ $msg-user-color: #eef0f5;
         }
         :deep(.t-textarea__inner) {
             resize: none;
+            height: 5rem;
             border-radius: 0.5rem;
             border-width: 0.14rem;
         }
@@ -200,4 +230,13 @@ $msg-user-color: #eef0f5;
 }
 ::-webkit-scrollbar-thumb:hover {
     background-color: #e2e2e2; 
+}
+.box {
+    transition: 0.2s linear;
+}
+.box_off {
+    transform: translateX(-220px);
+}
+.divider {
+    margin: 0.5rem;
 }
