@@ -119,6 +119,25 @@ h1 {
   top: 2rem;
   transform: translate(-50%,0);
 }
+.menu {
+  background-color: white;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  div {
+    border-radius: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: grey;
+    transition: 0.1s linear;
+    &:hover {
+      background-color: whitesmoke;
+    }
+  }
+}
 
 #app {
   max-width: 1280px;

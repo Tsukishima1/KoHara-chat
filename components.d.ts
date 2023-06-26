@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     TInput: typeof import('tdesign-vue-next')['Input']
     TMessage: typeof import('tdesign-vue-next')['Message']
     TPopconfirm: typeof import('tdesign-vue-next')['Popconfirm']
+    TPopup: typeof import('tdesign-vue-next')['Popup']
     TTextarea: typeof import('tdesign-vue-next')['Textarea']
   }
 }
