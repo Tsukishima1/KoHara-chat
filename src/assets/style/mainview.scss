@@ -84,7 +84,7 @@ $msg-user-color: #eef0f5;
     }
     .asidenav_off {
         width: 0.8rem;
-        transition: all 0.4s ease;
+        transition: all 0.5s ease;
     }
     .main {
         flex: 1;
@@ -133,7 +133,7 @@ $msg-user-color: #eef0f5;
             transition: 0.2s linear;
             &:hover {
                 box-shadow: 0 0 3px 0 $main-color;
-                background-color: rgb(144, 195, 215);
+                background-color: rgb(164, 171, 202);
             }
         }
     }

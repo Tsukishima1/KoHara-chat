@@ -152,14 +152,14 @@ watch(turnOffNav, () => {
 		const timer = setInterval(() => {
 			arrow.style.transform = "rotate(0)";
 			clearInterval(timer);
-		}, 400);
+		}, 200);
 	} else {
 		box.classList.remove("box_off");
 		asidenav.classList.remove("asidenav_off");
 		const timer = setInterval(() => {
 			arrow.style.transform = "rotate(180deg)";
 			clearInterval(timer);
-		}, 400);
+		}, 200);
 	}
 });
 </script>
