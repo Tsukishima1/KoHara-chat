@@ -79,5 +79,5 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.listen(PORT, (): void => {
-	console.log(`Server Running here 👉 https://localhost:${PORT}`);
+	console.log(`服务端端口号：${PORT}`);
 });

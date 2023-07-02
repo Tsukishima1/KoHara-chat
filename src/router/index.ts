@@ -12,12 +12,25 @@ const routes: RouteRecordRaw[] = [
 	},
 	{
 		path: "/chat",
+		redirect: "/chat/hall",
 		name: "chatpage",
 		component: async () => await import("../views/MainView.vue"),
 		// 必须登录才能访问
 		meta: {
 			requiresAuth: true,
 		},
+		children: [
+			{
+				path: "/chat/hall",
+				name: "hallpage",
+				component: async () => await import("../views/HallView.vue"),
+			},
+			{
+				path: "/chat/contacts",
+				name: "contactspage",
+				component: async () => await import("../views/ContactsView.vue"),
+			},
+		],
 	},
 ];
 

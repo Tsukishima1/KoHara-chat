@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     TButton: typeof import('tdesign-vue-next')['Button']
     TDivider: typeof import('tdesign-vue-next')['Divider']
+    TIcon: typeof import('tdesign-vue-next')['Icon']
     TInput: typeof import('tdesign-vue-next')['Input']
     TMessage: typeof import('tdesign-vue-next')['Message']
     TPopconfirm: typeof import('tdesign-vue-next')['Popconfirm']

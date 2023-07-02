@@ -81,6 +81,23 @@ $msg-user-color: #eef0f5;
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             }
         }
+        ul {
+            padding-right: 1rem;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            li {
+                list-style: none;
+                cursor: pointer;
+                font-weight: bold;
+                color: $main-color;
+                transition: 0.2s linear;
+                &:hover {
+                    color: grey;
+                }
+            }
+        }
     }
     .asidenav_off {
         width: 0.8rem;
